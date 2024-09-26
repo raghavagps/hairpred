@@ -1,0 +1,9 @@
+Bio==1.7.1
+gemmi==0.6.7
+scikit-learn==1.5.2
+pandas==2.1.4
+numpy==1.26.4
+openpyxl==3.1.5
+transformers==4.44.2
+torch==2.4.1
+accelerate==0.34.2
