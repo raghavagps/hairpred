@@ -17,7 +17,12 @@ Then, clone this github repository :
 git clone https://github.com/Ruchir3003/HAIRpr.git
 ```
 
+Next, we need to untar the tar.gz files :
 
+```bash
+tar -xvfz models.tar.gz
+tar -xvfz pssm.tar.gz
+```
 ## Requirements
 
 ### Install DSSP
