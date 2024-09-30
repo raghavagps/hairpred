@@ -169,7 +169,7 @@ def fetch_pdb_file(seqid, sequence, save_path):
     try:
         # Send a request to the ESMFold API with the sequence
         url = "https://api.esmatlas.com/foldSequence/v1/pdb/"
-        response = requests.post(url, data=sequence, verify=False)
+        response = requests.post(url, data=sequence, timeout = 30, verify=False)
         response.raise_for_status()  # Raise an error for bad HTTP status codes
         if response.text:
             pdb_text = response.text  # Get the response text (PDB file content)
