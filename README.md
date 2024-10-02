@@ -2,7 +2,7 @@
 
 This repository contains the standalone Python script `HAIRpred.py`.
 
-## Installation 
+## Installation (For Linux Users)
 
 This Github repository has files which need Git-LFS for installation. To install Git-LFS : 
 
@@ -23,7 +23,6 @@ Next, we need to untar the tar.gz files :
 tar -xvfz models.tar.gz
 tar -xvfz pssm.tar.gz
 ```
-## Requirements
 
 ### Install DSSP
 
@@ -44,6 +43,18 @@ pip install -r requirements.txt
 ```bash
 conda env create -f env.yml
 ```
+
+## Installation (For Other Users)
+
+You would need to install ncbi psi-blast files in the pssm and dssp for your system. 
+
+### Install DSSP
+
+You can install dssp by following https://github.com/cmbi/dssp
+
+### Install PSSM
+
+You can install system-specific ncbi psi-blast files from https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/
 
 ##  Usage
 ```
