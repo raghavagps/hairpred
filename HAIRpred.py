@@ -59,6 +59,7 @@ parser.add_argument("-o", "--output",type=str, help="Output: File for saving res
 parser.add_argument("-j", "--job",type=int, choices = [1,2], help="Job Type: 1: Predict, 2: Design. Default : 1")
 parser.add_argument("-m", "--model",type=int, choices = [1,2], help="(Only for Predict Module) Model Type: 1: RSA based RF, 2: RSA + PSSM ensemble model (Best Model). Default : 2")
 parser.add_argument("-t","--threshold", type=float, help="Threshold: Value between 0 to 1. Default : 0.5")
+parser.add_argument("-p","--path", type=str, help="Path for temporary folder")
 args = parser.parse_args()
 
 
@@ -219,7 +220,8 @@ def generate_and_get_rsa(row):
     pdb_path_unbound = f"./{seqid}_antigen.pdb"  # Path for the PDB file
     sequence = row['seq']  # Sequence
     if len(sequence)<=400:
-        fetch_pdb_file(seqid, sequence, pdb_path_unbound)
+       try : fetch_pdb_file(seqid, sequence, pdb_path_unbound)
+       except : fetch_pdb_file_longer(seqid, sequence, pdb_path_unbound)
     else : fetch_pdb_file_longer(seqid, sequence, pdb_path_unbound)
     # Parse the PDB file
     p = PDBParser(QUIET=True)
@@ -490,15 +492,17 @@ def fetch_pdb_file_longer(seqid, sequence, save_path):
 
 
 ################## Directory Paths ##########################
+if args.path == None:
+    temp_dir = "/Applications/XAMPP/xamppfiles/htdocs/hairpred/temp"
+else: temp_dir = args.path # Directory to store temporary files
+ncbi_dir = "/Applications/XAMPP/xamppfiles/htdocs/hairpred/pssm"  # Directory with NCBI BLAST and SwissProt database
 
-ncbi_dir = "./pssm"  # Directory with NCBI BLAST and SwissProt database
-temp_dir = "./temp" # Directory to store temporary files
 temp_pssm_dir = f"{temp_dir}/pssm"
 os.makedirs(temp_pssm_dir, exist_ok=True) # Ensure the PSSM directory exists
 
 # Paths to the models in the GitHub repository
-model_rsa_dir = "./models/rf_bestmodel_rsa.pkl"
-model_pssm_dir = "./models/rf_bestmodel_pssm.pkl"
+model_rsa_dir = "/Applications/XAMPP/xamppfiles/htdocs/hairpred/models/rf_bestmodel_rsa.pkl"
+model_pssm_dir = "/Applications/XAMPP/xamppfiles/htdocs/hairpred/models/rf_bestmodel_pssm.pkl"
 
 ########## Initalizing ESMFold Model (only for sequences longer than 400 residues) #############
 
