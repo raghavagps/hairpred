@@ -4,6 +4,8 @@
 
 This repository contains the standalone code for HAIRpred prediction tool. HAIRpred is a human-specific antibody interacting residues predictor. To support the scientific community, we have developed a standalone software and web server for the tool. For a user-friendly access to HAIRpred, please use https://webs.iiitd.edu.in/raghava/hairpred/.
 
+This github page was designed for users who have large proteins as inputs or large number of inputs. The source code available in this github page also gives users access to specific models, allowing for user customization.
+
 
 ## Installation (For Linux Users)
 
