@@ -6,6 +6,8 @@ This repository contains the standalone code for HAIRpred prediction tool. HAIRp
 
 This github page was designed for users who have large proteins as inputs or large number of inputs. The source code available in this github page also gives users access to specific models, allowing for user customization.
 
+## Reference
+Sahni R, Kumar N, Raghava GPS. HAIRpred: Prediction of human antibody interacting residues in an antigen from its primary structure. Protein Sci. 2025 Aug;34(8):e70212.
 
 ## Installation (For Linux Users)
 
